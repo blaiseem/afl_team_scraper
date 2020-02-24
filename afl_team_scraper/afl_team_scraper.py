@@ -8,9 +8,9 @@ class AFLTeamSelectionScraper:
     """
     Class to scrape AFL team selections for a given season and round
     """
-    def __init__(self,season='2020'):
+    def __init__(self,season='2020', competition_id=1):
         self.season = season
-        self.competition_id = 1 #hard coded. Will need to change for other competitions
+        self.competition_id = competition_id
 
         self.session = requests.session()
         self.TOKEN_URL = 'https://api.afl.com.au/cfs/afl/WMCTok'
