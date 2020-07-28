@@ -3,7 +3,6 @@ Code to scrape AFL team selections for a given season and round.
 """
 import requests
 
-
 class AFLTeamSelectionScraper:
     """
     Class to scrape AFL team selections for a given season and round
@@ -82,6 +81,9 @@ class AFLTeamSelectionScraper:
         for match_id in matchids:
             url = self.url_team_selections.format(match_id)
             response = self.session.get(url, headers=self.headers).json()
+
+            if not ('homeTeamPlayers' in response and 'awayTeamPlayers' in response):
+                continue
 
             match_selected_players = {}
 
